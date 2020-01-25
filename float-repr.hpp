@@ -10,6 +10,7 @@
 #include <sstream>
 #include <string_view>
 
+namespace tlo {
 template <typename Float>
 struct FloatTraits;
 
@@ -103,5 +104,6 @@ struct FloatRepr {
     ostream.precision(oldPrecision);
   }
 };
+}  // namespace tlo
 
 #endif  // FLOAT_REPR_HPP

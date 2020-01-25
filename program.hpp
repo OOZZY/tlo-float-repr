@@ -26,17 +26,19 @@ int programMain(int argc, char **argv) {
     return 1;
   }
 
-  std::cerr << "size of " << FloatTraits<Float>::TYPE_NAME
-            << " (in bits): " << FloatTraits<Float>::ACTUAL_SIZE << std::endl;
+  std::cerr << "size of " << tlo::FloatTraits<Float>::TYPE_NAME
+            << " (in bits): " << tlo::FloatTraits<Float>::ACTUAL_SIZE
+            << std::endl;
 
-  if (FloatTraits<Float>::ACTUAL_SIZE != FloatTraits<Float>::STANDARD_SIZE) {
-    std::cerr << "error: unsupported " << FloatTraits<Float>::TYPE_NAME
+  if (tlo::FloatTraits<Float>::ACTUAL_SIZE !=
+      tlo::FloatTraits<Float>::STANDARD_SIZE) {
+    std::cerr << "error: unsupported " << tlo::FloatTraits<Float>::TYPE_NAME
               << " size" << std::endl;
     return 2;
   }
 
   Float number = strToFloat<Float>(argv[1], nullptr);
-  const FloatRepr<Float> repr(number);
+  const tlo::FloatRepr<Float> repr(number);
   repr.outputDetails(std::cout);
   return 0;
 }
